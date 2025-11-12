@@ -9,4 +9,6 @@
 /*/target
 *.swp
 target
+coverity/
+blackduck-detect/
 *~
