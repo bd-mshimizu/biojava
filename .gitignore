@@ -9,4 +9,8 @@
 /*/target
 *.swp
 target
+coverity/
+polaris/
+blackduck-detect/
+.bridge/
 *~
