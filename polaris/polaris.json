@@ -1,0 +1,35 @@
+{
+    "data": {
+        "polaris": {
+            "application": {
+                "name": "SampleApp01_mshimizu"
+            },
+            "project": {
+                "name": "ex3-3"
+            },
+            "branch": {
+                "name": "main"
+            },
+            "assessment": {
+                "types": ["SCA", "SAST"]
+            },
+            "test": {
+                "sca": {
+                    "type": "SCA-PACKAGE, SCA-SIGNATURE"
+                }
+            },
+            "serverUrl": "https://poc.polaris.blackduck.com/"
+        },
+        "coverity": {
+            "config": {
+                "path": "polaris/coverity/coverity.yaml"
+            },
+            "args": "--dir polaris/coverity/build"
+        },
+        "detect": {
+            "config": {
+                "path": "polaris/blackduck-detect/detect.yaml"
+            }
+        }
+    }
+}

@@ -9,8 +9,14 @@
 /*/target
 *.swp
 target
-coverity/
-polaris/
-blackduck-detect/
+/blackduck-detect/
+/coverity/
+polaris/blackduck-detect/impact-analysis/
+polaris/blackduck-detect/signature-scan/
+polaris/coverity/build
+polaris/out
 .bridge/
 *~
+!/polaris/polaris.json
+!/polaris/coverity/coverity.yaml
+!/polaris/blackduck-detect/detect.yaml

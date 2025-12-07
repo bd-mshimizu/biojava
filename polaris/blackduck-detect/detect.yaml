@@ -1,0 +1,81 @@
+# Black Duck Detect config
+
+detect:
+  project:
+    name: biojava
+    version:
+      name: 7.2.3
+
+  source:
+    # This value is set `./` by default
+    path: ./
+
+  # Output directory to store files that Detect downloads or create.
+  # This value is set `${HOME}/blackduck/` by default.
+  output:
+    path: ./polaris/blackduck-detect/out/
+
+  # SIGNATURE_SCAN / DETECTOR / BINARY_SCAN
+  tools: SIGNATURE_SCAN
+
+  included:
+    detector:
+      # MAVEN / NPM etc. Default is ALL.
+      types: MAVEN
+
+  # Set true if you don't need to scan transitive dependencies
+  detector:
+    buildless: true
+    accuracy:
+      # - ALL: Require high accuracy
+      # - NONE: Ignore accuracy
+      required: NONE
+
+  maven:
+    build:
+      # Example: "install -DskipTests"
+      command: "package -DskipTests"
+
+  blackduck:
+    signature:
+      scanner:
+        snippet:
+          # Set as SNIPPET_MATCHING if you use snippet matching
+          matching: SNIPPET_MATCHING
+        upload:
+          source:
+            # This value is false by default. If true, source code is uploaded to the server. This option is required when displaying matched snippets. 
+            mode: true
+        # Path to the scan.cli
+        local:
+          path:
+
+  # Output path of signature scanner
+  scan:
+    output:
+      # This value is set `./blackduck-detect/signature-scan/` by default.
+      path: ./polaris/blackduck-detect/signature-scan/
+
+  binary:
+    scan:
+      file:
+        # Path to the target binary file
+        path:
+      name:
+        # Comma separated concrete file names, or Pattern with a wildcard
+        # Use `detect.source.path` to point to the directory of binary files
+        patterns:
+
+  impact:
+    analysis:
+      # This vaue is false by default
+      enabled: true
+
+      output:
+        # This value is set `./blackduck-detect/impact-analysis/` by default.
+        path: ./polaris/blackduck-detect/impact-analysis/
+
+logging:
+  level:
+    # OFF/ERROR/WARN/INFO/DEBUG/TRACE
+    detect: TRACE
