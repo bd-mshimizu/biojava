@@ -30,7 +30,11 @@ jobs:
     steps:
       - name: Checkout Source
         uses: actions/checkout@v4
-
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'oracle'
+          java-version: 21
       - name: Polaris Security Scan
         id: polaris-scan
         uses: blackduck-inc/black-duck-security-scan@v2
