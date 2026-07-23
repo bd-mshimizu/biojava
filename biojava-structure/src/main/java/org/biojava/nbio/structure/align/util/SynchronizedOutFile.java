@@ -32,6 +32,7 @@ public class SynchronizedOutFile {
 
 	int ARR_SIZE=100;
 	Integer counter;
+	private final Object counterLock = new Object();
 
 	boolean useGzipCompression = false;
 
@@ -70,7 +71,7 @@ public class SynchronizedOutFile {
 
 	public synchronized void write(String message) throws IOException{
 
-		synchronized (counter){
+		synchronized (counterLock){
 			counter++;
 			tmp[counter] = message;
 			if (counter >= ARR_SIZE - 1 ) {
@@ -83,7 +84,7 @@ public class SynchronizedOutFile {
 	}
 
 	public synchronized void flush() throws IOException {
-		synchronized (counter){
+		synchronized (counterLock){
 			writeArr();
 			counter = -1;
 		}
